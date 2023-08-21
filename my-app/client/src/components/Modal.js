@@ -51,6 +51,18 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
 
   
 
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    
+    setData(data => ({
+      ...data,
+      [name] : value
+    }))
+
+    console.log(data)
+
+  }
+
   return (
     <div className="overlay">
       <div className="modal">
