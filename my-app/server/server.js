@@ -1,3 +1,15 @@
+const PORT = process.env.PORT ?? 8000
+const express = require('express')
+const { v4: uuidv4 } = require('uuid')
+const cors = require('cors')
+const app = express()
+const pool = require('./db')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+
+app.use(cors())
+app.use(express.json())
+
 // get all todos
 app.get('/todos/:userEmail', async (req, res) => {
   const { userEmail } = req.params
@@ -8,6 +20,7 @@ app.get('/todos/:userEmail', async (req, res) => {
     console.error(err)
   }
 })
+
 // create a new todo
 app.post('/todos', async(req, res) => {
   const { user_email, title, progress, date } = req.body
@@ -20,6 +33,32 @@ app.post('/todos', async(req, res) => {
     console.error(err)
   }
 })
+
+// edit a new todo
+app.put('/todos/:id', async (req, res) => {
+  const { id } = req.params
+  const { user_email, title, progress, date } = req.body
+  try {
+    const editToDo =
+      await pool.query('UPDATE todos SET user_email = $1, title = $2, progress = $3, date = $4 WHERE id = $5;',
+      [user_email, title, progress, date, id])
+    res.json(editToDo)
+  } catch (err) {
+    console.error(err)
+  }
+})
+
+// delete a todo
+app.delete('/todos/:id', async (req, res) => {
+  const { id } = req.params
+  try {
+    const deleteToDo = await pool.query('DELETE FROM todos WHERE id = $1;', [id])
+    res.json(deleteToDo)
+  } catch (err) {
+    console.error(err)
+  }
+})
+
 // signup
 app.post('/signup', async (req, res) => {
   const { email, password } = req.body
@@ -63,3 +102,4 @@ app.post('/login', async (req, res) => {
   }
 })
 
+app.listen(PORT, ( )=> console.log(`Server running on PORT ${PORT}`))
