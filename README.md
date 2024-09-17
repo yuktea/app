@@ -12,7 +12,7 @@ This project was built using:
 
 ![image](https://github.com/user-attachments/assets/6379f018-6d10-47e5-a8ae-5d0e39dd2943)
 
-<img width="735" alt="image" src="https://github.com/user-attachments/assets/9db6ae64-9d7e-4b06-8242-23253ee29b2c">
+<img width="1500" alt="image" src="https://github.com/user-attachments/assets/9db6ae64-9d7e-4b06-8242-23253ee29b2c">
 
 
 
