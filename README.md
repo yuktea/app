@@ -2,8 +2,6 @@
 
 This project was initialized using **Create React App**.
 
-## Available Scripts
-
 Within your project directory, you can use the following commands:
 
 ### `npm start`
@@ -26,13 +24,3 @@ Builds the app for production and outputs it to the `build` folder.
 
 Your app will be ready for deployment.  
 See the section on deployment for more information.
-
-### `npm run eject`
-**Note:** This is a one-way operation. Once you eject, you **cannot** revert back!
-
-If you're not satisfied with the default build tool and configuration, you can eject at any time. This command will copy all configuration files and dependencies (e.g., Webpack, Babel, ESLint) directly into your project, giving you full control over them.
-
-- After ejecting, all scripts (except eject) will continue to work, but they will reference the copied files, allowing for further customization.
-- Ejecting is optional and is typically not needed for small to medium projects. However, if you require more control over the build process, ejecting is available.
-
----
